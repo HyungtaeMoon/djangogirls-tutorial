@@ -10,19 +10,13 @@
 </head>
 <body>
 	<h1>DjangoGirls Blog</h1>
-	<p>전체 포스트 목록입니다
 
-	<div>
-		<p>published: 04.06.2018, 12:14</p>
-		<h2>My first post</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi corporis, dignissimos est optio suscipit voluptate. Alias ea enim expedita, fugiat itaque laudantium nihil nobis numquam placeat suscipit temporibus ut voluptate?</p>
-	</div>
-
-	<div>
-		<p>published: 04.05.2018 20:15</p>
-		<h2>My second post</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi corporis, dignissimos est optio suscipit voluptate. Alias ea enim expedita, fugiat itaque laudantium nihil nobis numquam placeat suscipit temporibus ut voluptate?</p>
-	</div>
-
+    {% for post in posts %}
+        <div>
+            <p>published: {{ post.published_date }}</p>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.text }}</p>
+        </div>
+    {% endfor %}
 </body>
 </html>

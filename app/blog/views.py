@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.template.loader import render_to_string
 from .models import Post
 
-def post_list(request):
+# def post_list(request):
     """
     first/
         first_file.txt
@@ -49,8 +49,8 @@ def post_list(request):
     # html = render_to_string('blog/post_list.html')
     # # 가져온 문자열을 돌려주기
     # return HttpResponse(html)
-    posts = Post.objects.all()
-    print(posts)
+    # posts = Post.objects.all()
+    # print(posts)
     # Post instance에서 title속성에 접근가능
     # HttpResponse에
     #
@@ -60,11 +60,27 @@ def post_list(request):
     # - PBE...
     #
     # 위 텍스트를 넣어서 리턴
-    result = '글 목록<br>'
+    # result = '글 목록<br>'
+    #
+    # for post in Post.objects.all():
+    #     result += '{}<br>'.format(post.title)
+    # return HttpResponse(result)
 
-    for post in Post.objects.all():
-        result += '{}<br>'.format(post.title)
-    return HttpResponse(result)
+def post_list(request):
+    posts = Post.objects.all()
+    context = {
+        'posts': posts,
+    }
+    # render는 주어진 인수를 사용해서
+    # 1번째 인수: HttpRequest인스턴스
+    # 2번째 인수: 문자열(TEMPLAT['DIR']를 기준으로 탐색할 템플릿 파일의 경로)
+    # 3번째 인수: 템플릿을 렌더링할 때 사용할 객체 모음
+    # return render(request, 'blog/post_list.html', context)
 
+    return render(
+        request=request,
+        template_name='blog/post_list.html'
+        context=context,
+    )
 
     # return render(request, 'blog/post_list.html')
