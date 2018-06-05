@@ -18,8 +18,10 @@
 </head>
 <body>
     <div class = "container">
-        <h1 class="mt-4"><a href="{% url 'post-list' %}">DjangoGirls Blog</a></h1>
-
+        <h1 class="mt-4-0"><a href="{% url 'post-list' %}">DjangoGirls Blog</a></h1>
+        <div classs="text-right mb-2">
+            <a class="btn btn-primary" href="{% url 'post-create' %}">글 쓰기</a>
+        </div>
         {% block content %}
         {% endblock %}
 
