@@ -41,8 +41,8 @@ def post_create(request):
 
         post = Post.objects.create(
             author=request.user,
-            title=request.POST['title']
-            text=request.POST['text']
+            title=request.POST['title'],
+            text=request.POST['text'],
         )
         return HttpResponse('id: {}, title: {}, text: {}'.format(
             post.id,
