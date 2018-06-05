@@ -67,6 +67,7 @@ from .models import Post
 #     # return HttpResponse(result)
 
 def post_list(request):
+
     posts = Post.objects.all()
     context = {
         'posts': posts,

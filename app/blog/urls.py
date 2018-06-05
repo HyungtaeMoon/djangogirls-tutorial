@@ -14,5 +14,5 @@ urlpatterns = [
     # 아래 url함수의 두 번째 인자로 전달
     #  (함수호출 아님)
     url(r'^$', post_list),
-    url(r'^(\d+/)', post_detail),
+    url(r'^(\d+)/', post_detail),
 ]
